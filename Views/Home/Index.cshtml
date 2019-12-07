@@ -1,0 +1,38 @@
+﻿@model List<Chef>
+
+<div class="container" style="margin-bottom: 50px;">
+  <div class="row">
+    <div class="col">
+    </div>
+    <div class="col-5">
+      <h2>Chefs | <a href="/dishes">Dishes</a></h2>    
+    </div>
+    <div class="col">
+      <a href="/new">Add a Chef</a>
+    </div>
+  </div>
+</div>
+
+<h3>Check out our roster of Chefs!</h3>
+<hr>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col"># of Dishes</th>
+    </tr>
+  </thead>
+
+  @foreach(var chef in Model){
+  <tbody>
+    <tr>
+      <td>@chef.FirstName @chef.LastName</td>
+      <td>@(@DateTime.Now.Year-@chef.DOB.Year)</td>
+      <td>@chef.CreatedDishes.Count</td>
+    </tr>
+  </tbody>
+  }
+</table>
+
